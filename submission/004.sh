@@ -7,4 +7,4 @@ descriptorInfo=$(bitcoin-cli getdescriptorinfo $descriptor)
 descriptorWithChecksum=$(echo "$descriptorInfo" | jq -r '.descriptor')
 
 addresses=$(bitcoin-cli deriveaddresses "$descriptorWithChecksum" "[100,100]")
-echo $addresses | jq .[0]
+echo $addresses | jq -r ".[0]"
